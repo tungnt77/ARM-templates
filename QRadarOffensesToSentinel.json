@@ -78,6 +78,19 @@
         "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'azfunctions')]"
     },
     "resources": [
+	{
+            "type": "Microsoft.Web/serverfarms",
+            "apiVersion": "2020-06-01",
+            "name": "[variables('hostingPlanName')]",
+            "location": "[resourceGroup().location]",
+	    "kind": "linux",
+	    "sku": {
+		"name": "B1"
+	    },
+            "properties": {
+		"reserved": true
+            }
+        },		    
         {
             "type": "Microsoft.Web/sites",
             "apiVersion": "2019-08-01",
@@ -160,24 +173,7 @@
                     }
                 }
             ]
-        },
-        {
-            "type": "Microsoft.Web/serverfarms",
-            "apiVersion": "2019-08-01",
-            "name": "[variables('hostingPlanName')]",
-            "location": "[resourceGroup().location]",
-            "sku": {
-                "name": "Y1",
-                "tier": "Dynamic"
-            },
-            "properties": {
-                "name": "[variables('hostingPlanName')]",
-                "computeMode": "Dynamic",
-                    "size": "Y1",
-                    "family": "Y",
-                    "capacity": 0
-            }
-        },		
+        },	
         {
             "type": "Microsoft.Storage/storageAccounts",
             "apiVersion": "2019-06-01",

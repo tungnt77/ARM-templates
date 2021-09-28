@@ -144,7 +144,7 @@
                             "name": "sharedKey",
                             "value": "[parameters('WorkspaceKey')]"
                         }
-                    ],
+                    ]
                 },
                 "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
             },

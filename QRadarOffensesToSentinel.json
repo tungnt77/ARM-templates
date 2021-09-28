@@ -179,12 +179,14 @@
             "apiVersion": "2019-08-01",
             "name": "[variables('hostingPlanName')]",
             "location": "[resourceGroup().location]",
+			"kind": "Linux",
             "sku": {
                 "name": "Y1",
                 "tier": "Dynamic"
             },
             "properties": {
                 "name": "[variables('hostingPlanName')]",
+				"reserved": true
                 "computeMode": "Dynamic",
                     "size": "Y1",
                     "family": "Y",

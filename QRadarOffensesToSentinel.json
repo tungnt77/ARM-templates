@@ -68,7 +68,7 @@
             "metadata": {
                 "description": "Provide the primary key to this Log Analytics workspace"
             }
-        },
+        }
     },
     "variables": {
         "repoUrl": "https://github.com/tungnt77/test.git",		

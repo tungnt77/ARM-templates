@@ -154,7 +154,8 @@
                             "name": "sharedKey",
                             "value": "[parameters('WorkspaceKey')]"
                         }
-                    ]
+                    ],
+					"linuxFxVersion": "python|3.7"
                 },
                 "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
             },
@@ -179,14 +180,12 @@
             "apiVersion": "2019-08-01",
             "name": "[variables('hostingPlanName')]",
             "location": "[resourceGroup().location]",
-			"kind": "linux",
             "sku": {
                 "name": "Y1",
                 "tier": "Dynamic"
             },
             "properties": {
                 "name": "[variables('hostingPlanName')]",
-				"reserved": true,
                 "computeMode": "Dynamic",
                     "size": "Y1",
                     "family": "Y",

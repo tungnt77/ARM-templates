@@ -155,7 +155,8 @@
                             "value": "[parameters('WorkspaceKey')]"
                         }
                     ],
-		    "linuxFxVersion": "PYTHON|3.9"
+		    "linuxFxVersion": "PYTHON|3.9",
+		    "reserved": true
                 },
                 "serverFarmId": "[concat('/subscriptions/','/resourcegroups/', '/providers/Microsoft.Web/serverfarms/', variables('hostingPlanName'))]"
             },
@@ -177,16 +178,15 @@
         },
         {
             "type": "Microsoft.Web/serverfarms",
-            "apiVersion": "2020-06-01",
+            "apiVersion": "2019-08-01",
             "name": "[variables('hostingPlanName')]",
             "location": "[resourceGroup().location]",
-	    "kind": "linux",
-	    "sku": {
-		"name": "B1"
-	    },
+            "sku": {
+                "name": "F1",
+                "tier": "Free"
+            },
             "properties": {
-		"reserved": true,
-                "name": "[variables('hostingPlanName')]"
+                "name": "[variables('hostingPlanName')]",
             }
         },		
         {

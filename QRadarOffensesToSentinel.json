@@ -155,8 +155,7 @@
                             "value": "[parameters('WorkspaceKey')]"
                         }
                     ],
-		    "linuxFxVersion": "PYTHON|3.9",
-		    "reserved": true
+		    "linuxFxVersion": "PYTHON|3.9"
                 },
                 "serverFarmId": "[concat('/subscriptions/','/resourcegroups/', '/providers/Microsoft.Web/serverfarms/', variables('hostingPlanName'))]"
             },

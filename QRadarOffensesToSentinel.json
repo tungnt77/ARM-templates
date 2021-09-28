@@ -73,7 +73,7 @@
 			"type": "string",
 				"defaultValue": "python",
 				"allowedValues": [
-				"python"
+					"python"
 			],
 			"metadata": {
 				"description": "The language worker runtime to load in the function app."

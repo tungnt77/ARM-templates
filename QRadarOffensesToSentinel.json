@@ -83,9 +83,10 @@
             "apiVersion": "2020-06-01",
             "name": "[variables('hostingPlanName')]",
             "location": "[resourceGroup().location]",
-	    "kind": "linux",
+	    "kind": "Linux",
 	    "sku": {
-		"name": "B1"
+		"name": "B1",
+		"tier": "Basic"    
 	    },
             "properties": {
 		"reserved": true
@@ -102,6 +103,7 @@
                 "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]"
             ],
             "properties": {
+		"serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",    
                 "siteConfig": {
                     "appSettings": [
                         {
@@ -153,10 +155,8 @@
                             "value": "[parameters('WorkspaceKey')]"
                         }
                     ],
-			"reserved": true,
 		    "linuxFxVersion": "PYTHON|3.9"
-                },
-                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
+                }
             },
             "resources": [
                 {

@@ -22,6 +22,9 @@
                 "description": "Storage Account type"
             }
         },
+        "use32BitWorkerProcess": {
+            "type": "bool"
+        },
         "QRadarManagementIP": {
             "type": "string",
             "metadata": {
@@ -88,13 +91,17 @@
                 "[concat('Microsoft.Web/serverfarms/', variables('hostingPlanName'))]",
                 "[concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]"
             ],
-            "kind": "functionapp",
+            "kind": "functionapp,linux",
             "properties": {
                 "siteConfig": {
                     "appSettings": [
                         {
                             "name": "FUNCTIONS_EXTENSION_VERSION",
-                            "value": "~1"
+                            "value": "~3"
+                        },
+                        {
+                            "name": "FUNCTIONS_WORKER_RUNTIME",
+                            "value": "python"
                         },
                         {
                             "name": "AzureWebJobsStorage",
@@ -140,7 +147,8 @@
                             "name": "sharedKey",
                             "value": "[parameters('WorkspaceKey')]"
                         }
-                    ]
+                    ],
+		    "use32BitWorkerProcess": "[parameters('use32BitWorkerProcess')]"
                 },
                 "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
             },
@@ -155,7 +163,7 @@
                     "properties": {
                         "RepoUrl": "[variables('repoUrl')]",
                         "branch": "[variables('branch')]",
-                        "IsManualIntegration": true
+                        "IsManualIntegration": false
                     }
                 }
             ]

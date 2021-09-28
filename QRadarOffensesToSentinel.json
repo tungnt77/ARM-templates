@@ -163,16 +163,19 @@
         },
         {
             "type": "Microsoft.Web/serverfarms",
-            "apiVersion": "2020-06-01",
+            "apiVersion": "2019-08-01",
             "name": "[variables('hostingPlanName')]",
             "location": "[resourceGroup().location]",
-	    "kind": "linux",
-	    "sku": {
-		"name": "B1"
-	    },
+            "sku": {
+                "name": "Y1",
+                "tier": "Dynamic"
+            },
             "properties": {
-		"reserved": true,
-                "name": "[variables('hostingPlanName')]"
+                "name": "[variables('hostingPlanName')]",
+                "computeMode": "Dynamic",
+                    "size": "Y1",
+                    "family": "Y",
+                    "capacity": 0
             }
         },		
         {

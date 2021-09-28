@@ -163,7 +163,7 @@
                     "properties": {
                         "RepoUrl": "[variables('repoUrl')]",
                         "branch": "[variables('branch')]",
-                        "IsManualIntegration": false
+                        "IsManualIntegration": true
                     }
                 }
             ]

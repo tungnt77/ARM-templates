@@ -186,7 +186,7 @@
                 "tier": "Free"
             },
             "properties": {
-                "name": "[variables('hostingPlanName')]",
+                "name": "[variables('hostingPlanName')]"
             }
         },		
         {

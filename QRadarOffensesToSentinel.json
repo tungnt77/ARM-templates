@@ -33,24 +33,24 @@
                 "description": "Input your authentication token for QRadar"
             }
         },
-		"LogAnalyticsCustomLogName": {
+        "LogAnalyticsCustomLogName": {
             "type": "string",            
-			"metadata": {
-				"description": "Specifies Azure Log Analytics Workspace Table Name."
-			}
+            "metadata": {
+                "description": "Specifies Azure Log Analytics Workspace Table Name."
+            }
         },
-		"ServicePrincipalID": {
-			"type": "string",
-			"metadata": {
-				"description": "Azure service principal id"
-			}
-		},
-		"ServicePrincipalSecret": {
-			"type": "string",
-			"metadata": {
-				"description": "Azure service principal secret"
-			}
-		},
+        "ServicePrincipalID": {
+            "type": "string",
+            "metadata": {
+                "description": "Azure service principal id"
+            }
+        },
+        "ServicePrincipalSecret": {
+            "type": "string",
+            "metadata": {
+                "description": "Azure service principal secret"
+            }
+        },
         "TenantID": {
             "type": "string",
             "metadata": {
@@ -69,23 +69,23 @@
                 "description": "Provide the primary key to this Log Analytics workspace"
             }
         },
-		"runtime": {
-			"type": "string",
-			"defaultValue": "python",
-			"allowedValues": [
-				"python"
-			],
-			"metadata": {
-				"description": "The language worker runtime to load in the function app."
-			}
-		}
+	"runtime": {
+            "type": "string",
+            "defaultValue": "python",
+            "allowedValues": [
+               "python"
+            ],
+            "metadata": {
+               "description": "The language worker runtime to load in the function app."
+            }
+        }
     },
     "variables": {
         "repoUrl": "https://github.com/tungnt77/test.git",		
         "branch": "main",
         "functionAppName": "[concat(toLower(parameters('appName')), uniqueString(resourceGroup().id))]",
         "hostingPlanName": "[parameters('appName')]",
-		"functionWorkerRuntime": "[parameters('runtime')]",
+	"functionWorkerRuntime": "[parameters('runtime')]",
         "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'azfunctions')]"
     },
     "resources": [
@@ -93,7 +93,7 @@
             "type": "Microsoft.Web/sites",
             "apiVersion": "2019-08-01",
             "name": "[variables('functionAppName')]",
-			"kind": "functionapp,linux",
+	    "kind": "functionapp,linux",
             "location": "[resourceGroup().location]",
             "dependsOn": [
                 "[concat('Microsoft.Web/serverfarms/', variables('hostingPlanName'))]",
@@ -155,9 +155,9 @@
                             "value": "[parameters('WorkspaceKey')]"
                         }
                     ],
-					"linuxFxVersion": "PYTHON|3.9"
+		    "linuxFxVersion": "PYTHON|3.9"
                 },
-                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
+                "serverFarmId": "[concat('/subscriptions/','/resourcegroups/', '/providers/Microsoft.Web/serverfarms/', variables('hostingPlanName'))]"
             },
             "resources": [
                 {

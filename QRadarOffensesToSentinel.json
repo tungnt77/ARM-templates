@@ -75,7 +75,7 @@
         "branch": "main",
         "functionAppName": "[concat(toLower(parameters('appName')), uniqueString(resourceGroup().id))]",
         "hostingPlanName": "[parameters('appName')]",
-        "storageAccountName": "[parameters('appName')]"
+        "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'azfunctions')]"
     },
     "resources": [
         {

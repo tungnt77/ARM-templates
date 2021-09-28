@@ -71,9 +71,9 @@
         },
 		"runtime": {
 			"type": "string",
-				"defaultValue": "python",
-				"allowedValues": [
-					"python"
+			"defaultValue": "python",
+			"allowedValues": [
+				"python"
 			],
 			"metadata": {
 				"description": "The language worker runtime to load in the function app."

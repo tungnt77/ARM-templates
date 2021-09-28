@@ -90,19 +90,6 @@
     },
     "resources": [
         {
-            "type": "Microsoft.Web/serverfarms",
-            "apiVersion": "2020-06-01",
-            "name": "[variables('hostingPlanName')]",
-            "location": "[resourceGroup().location]",
-			"kind": "linux",
-            "sku": {
-                "name": "F1"
-            },
-            "properties": {
-                "reserved": true
-            }
-        },
-        {
             "type": "Microsoft.Web/sites",
             "apiVersion": "2019-08-01",
             "name": "[variables('functionAppName')]",
@@ -188,6 +175,19 @@
                 }
             ]
         },
+        {
+            "type": "Microsoft.Web/serverfarms",
+            "apiVersion": "2020-06-01",
+            "name": "[variables('hostingPlanName')]",
+            "location": "[resourceGroup().location]",
+			"kind": "linux",
+            "sku": {
+                "name": "F1"
+            },
+            "properties": {
+                "reserved": true
+            }
+        },		
         {
             "type": "Microsoft.Storage/storageAccounts",
             "apiVersion": "2019-06-01",

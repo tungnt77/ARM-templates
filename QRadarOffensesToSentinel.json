@@ -85,7 +85,7 @@
             "location": "[resourceGroup().location]",
 	    "kind": "Linux",
 	    "sku": {
-		"name": "F1"   
+		"name": "B1"   
 	    },
             "properties": {
 		"reserved": true

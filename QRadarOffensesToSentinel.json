@@ -90,19 +90,6 @@
     },
     "resources": [
         {
-            "type": "Microsoft.Web/serverfarms",
-            "apiVersion": "2020-06-01",
-            "name": "[variables('hostingPlanName')]",
-            "location": "[resourceGroup().location]",
-			"kind": "linux",
-            "sku": {
-                "name": "B1"
-            },
-            "properties": {
-                "reserved": true
-            }
-        },
-        {
             "type": "Microsoft.Web/sites",
             "apiVersion": "2019-08-01",
             "name": "[variables('functionAppName')]",
@@ -111,7 +98,7 @@
                 "[concat('Microsoft.Web/serverfarms/', variables('hostingPlanName'))]",
                 "[concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]"
             ],
-            "kind": "functionapp",
+            "kind": "functionapp,linux",
             "properties": {
                 "siteConfig": {
                     "appSettings": [

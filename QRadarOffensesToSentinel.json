@@ -22,9 +22,6 @@
                 "description": "Storage Account type"
             }
         },
-        "use32BitWorkerProcess": {
-            "type": "bool"
-        },
         "QRadarManagementIP": {
             "type": "string",
             "metadata": {
@@ -148,7 +145,6 @@
                             "value": "[parameters('WorkspaceKey')]"
                         }
                     ],
-		    "use32BitWorkerProcess": "[parameters('use32BitWorkerProcess')]"
                 },
                 "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
             },

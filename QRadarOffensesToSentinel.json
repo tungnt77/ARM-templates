@@ -181,6 +181,9 @@
             "name": "[variables('hostingPlanName')]",
             "location": "[resourceGroup().location]",
 			"kind": "linux",
+			"sku": {
+				"name": "B1"
+			},
             "properties": {
 				"reserved": true,
                 "name": "[variables('hostingPlanName')]"

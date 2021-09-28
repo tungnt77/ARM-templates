@@ -96,7 +96,7 @@
             "type": "Microsoft.Web/sites",
             "apiVersion": "2019-08-01",
             "name": "[variables('functionAppName')]",
-	    "kind": "functionapp,linux",
+	    "kind": "functionapp",
             "location": "[resourceGroup().location]",
             "dependsOn": [
                 "[resourceId('Microsoft.Web/serverfarms/', variables('hostingPlanName'))]",

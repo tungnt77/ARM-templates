@@ -180,12 +180,12 @@
             "apiVersion": "2020-06-01",
             "name": "[variables('hostingPlanName')]",
             "location": "[resourceGroup().location]",
-			"kind": "linux",
-			"sku": {
-				"name": "B1"
-			},
+	    "kind": "linux",
+	    "sku": {
+		"name": "B1"
+	    },
             "properties": {
-				"reserved": true,
+		"reserved": true,
                 "name": "[variables('hostingPlanName')]"
             }
         },		

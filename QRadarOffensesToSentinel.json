@@ -158,20 +158,7 @@
                     ],
 		    "linuxFxVersion": "PYTHON|3.9"
                 }
-            },
-            "resources": [
-                {
-                    "apiVersion": "2020-06-01",
-                    "name": "web",
-                    "type": "sourcecontrols",
-                    "dependsOn": [
-                        "[resourceId('Microsoft.Web/Sites', variables('functionAppName'))]"
-                    ],
-                    "properties": {
-                        "IsManualIntegration": true
-                    }
-                }
-            ]
+            }
         },	
         {
             "type": "Microsoft.Storage/storageAccounts",

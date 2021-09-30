@@ -71,8 +71,6 @@
         }
     },
     "variables": {
-        "repoUrl": "https://github.com/tungnt77/test.git",		
-        "branch": "main",
         "functionAppName": "[concat(toLower(parameters('appName')), uniqueString(resourceGroup().id))]",
         "hostingPlanName": "[parameters('appName')]",
         "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'azfunctions')]"
@@ -161,14 +159,12 @@
                 {
                     "apiVersion": "2020-06-01",
                     "name": "web",
-                    "type": "sourcecontrols",
+                    "type": "appsettings",
                     "dependsOn": [
                         "[resourceId('Microsoft.Web/Sites', variables('functionAppName'))]"
                     ],
                     "properties": {
-                        "RepoUrl": "[variables('repoUrl')]",
-                        "branch": "[variables('branch')]",
-                        "IsManualIntegration": true
+                        "WEBSITE_RUN_FROM_PACKAGE": "https://github.com/tungnt77/ARM-templates/raw/main/TimeTrigger.zip"
                     }
                 }
             ]

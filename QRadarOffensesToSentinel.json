@@ -152,6 +152,14 @@
                             "value": "[parameters('WorkspaceKey')]"
                         },
                         {
+                            "name": "SCM_DO_BUILD_DURING_DEPLOYMENT",
+                            "value": "true"
+                        },
+                        {
+                            "name": "ENABLE_ORYX_BUILD",
+                            "value": "true"
+                        },			    
+                        {
                             "name": "WEBSITE_RUN_FROM_PACKAGE",
                             "value": "https://github.com/tungnt77/ARM-templates/raw/main/TimeTrigger.zip"
                         }			    

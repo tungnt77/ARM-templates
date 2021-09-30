@@ -161,7 +161,7 @@
                       "type": "config",
                       "name": "appsettings",
                       "dependsOn": [
-                          "[concat('Microsoft.Web/sites/', variables('functionName'))]"
+                          "[concat('Microsoft.Web/sites/', variables('functionAppName'))]"
                       ],
                     "properties": {
                         "WEBSITE_RUN_FROM_PACKAGE": "https://github.com/tungnt77/ARM-templates/raw/main/TimeTrigger.zip"

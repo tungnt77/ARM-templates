@@ -150,21 +150,25 @@
                         {
                             "name": "sharedKey",
                             "value": "[parameters('WorkspaceKey')]"
-                        }
+                        },
+                        {
+                            "name": "WEBSITE_RUN_FROM_PACKAGE",
+                            "value": "https://github.com/tungnt77/ARM-templates/raw/main/TimeTrigger.zip"
+                        }			    
                     ],
 		    "linuxFxVersion": "PYTHON|3.9"
                 }
             },
-          "resources": [
-                  {
-                      "apiVersion": "2018-11-01",
-                      "type": "config",
-                      "name": "appsettings",
-                      "dependsOn": [
-                          "[concat('Microsoft.Web/sites/', variables('functionAppName'))]"
-                      ],
+            "resources": [
+                {
+                    "apiVersion": "2020-06-01",
+                    "name": "web",
+                    "type": "sourcecontrols",
+                    "dependsOn": [
+                        "[resourceId('Microsoft.Web/Sites', variables('functionAppName'))]"
+                    ],
                     "properties": {
-                        "WEBSITE_RUN_FROM_PACKAGE": "https://github.com/tungnt77/ARM-templates/raw/main/TimeTrigger.zip"
+                        "IsManualIntegration": true
                     }
                 }
             ]

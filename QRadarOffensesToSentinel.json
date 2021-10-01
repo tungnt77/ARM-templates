@@ -105,7 +105,7 @@
                 "httpsOnly": true,
                 "clientAffinityEnabled": true,
                 "alwaysOn": true,
-		"linuxFxVersion": "PYTHON|3.9"
+		"linuxFxVersion": "PYTHON|3.9",
                 "reserved": true
             },
             "resources": [

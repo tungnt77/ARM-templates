@@ -88,46 +88,7 @@
             "properties": {
 		"reserved": true
             }
-        },
-          {
-              "type": "Microsoft.Storage/storageAccounts/blobServices",
-              "apiVersion": "2019-06-01",
-              "name": "[concat(variables('functionAppName'), '/default')]",
-              "dependsOn": [
-                  "[resourceId('Microsoft.Storage/storageAccounts', tolower(variables('functionAppName')))]"
-              ],
-              "sku": {
-                  "name": "Standard_LRS",
-                  "tier": "Standard"
-              },
-              "properties": {
-                  "cors": {
-                      "corsRules": [
-                      ]
-                  },
-                  "deleteRetentionPolicy": {
-                      "enabled": false
-                  }
-              }
-          },
-          {
-              "type": "Microsoft.Storage/storageAccounts/fileServices",
-              "apiVersion": "2019-06-01",
-              "name": "[concat(variables('functionAppName'), '/default')]",
-              "dependsOn": [
-                  "[resourceId('Microsoft.Storage/storageAccounts', tolower(variables('functionAppName')))]"
-              ],
-              "sku": {
-                  "name": "Standard_LRS",
-                  "tier": "Standard"
-              },
-              "properties": {
-                  "cors": {
-                      "corsRules": [
-                      ]
-                  }
-              }
-          },	    
+        },	    
         {
             "type": "Microsoft.Web/sites",
             "apiVersion": "2019-08-01",

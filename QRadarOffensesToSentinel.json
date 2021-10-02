@@ -95,83 +95,79 @@
             "[resourceId('Microsoft.Web/serverfarms/', variables('hostingPlanName'))]",
             "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]"
          ],
-         "properties":{
-            "name":"[variables('functionAppName')]",
-            "serverFarmId":"[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
-            "httpsOnly":true,
-            "clientAffinityEnabled":true,
-            "alwaysOn":true,
-            "linuxFxVersion":"PYTHON|3.8",
-            "reserved":true,
-            "siteConfig":{
-               "appSettings":[
-                  {
-                     "name":"FUNCTIONS_EXTENSION_VERSION",
-                     "value":"~3"
-                  },
-                  {
-                     "name":"FUNCTIONS_WORKER_RUNTIME",
-                     "value":"[variables('functionWorkerRuntime')]"
-                  },
-                  {
-                     "name":"AzureWebJobsStorage",
-                     "value":"[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';EndpointSuffix=', environment().suffixes.storage, ';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').keys[0].value)]"
-                  },
-                  {
-                     "name":"WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
-                     "value":"[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';EndpointSuffix=', environment().suffixes.storage, ';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').keys[0].value)]"
-                  },
-                  {
-                     "name":"WEBSITE_CONTENTSHARE",
-                     "value":"[toLower(variables('functionAppName'))]"
-                  },
-                  {
-                     "name":"consoleIP",
-                     "value":"[parameters('QRadarManagementIP')]"
-                  },
-                  {
-                     "name":"token",
-                     "value":"[parameters('QRadarToken')]"
-                  },
-                  {
-                     "name":"tenant",
-                     "value":"[parameters('TenantID')]"
-                  },
-                  {
-                     "name":"sp_id",
-                     "value":"[parameters('ServicePrincipalID')]"
-                  },
-                  {
-                     "name":"sp_secret",
-                     "value":"[parameters('ServicePrincipalSecret')]"
-                  },
-                  {
-                     "name":"customerID",
-                     "value":"[parameters('WorkspaceID')]"
-                  },
-                  {
-                     "name":"sharedKey",
-                     "value":"[parameters('WorkspaceKey')]"
-                  }
-               ]
-            }
-         },
-         "resources":[
-            {
-               "apiVersion":"2020-06-01",
-               "name":"web",
-               "type":"sourcecontrols",
-               "dependsOn":[
-                  "[resourceId('Microsoft.Web/Sites', variables('functionAppName'))]"
-               ],
-               "properties":{
-                  "RepoUrl":"[variables('repoUrl')]",
-                  "branch":"[variables('branch')]",
-                  "IsManualIntegration":true
-               }
-            }
-         ]
-      },
+            "properties": {
+                "siteConfig": {
+                    "appSettings": [
+                        {
+                            "name": "FUNCTIONS_EXTENSION_VERSION",
+                            "value": "~3"
+                        },
+                        {
+                            "name": "FUNCTIONS_WORKER_RUNTIME",
+                            "value": "[variables('functionWorkerRuntime')]"
+                        },
+                        {
+                            "name": "AzureWebJobsStorage",
+                            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';EndpointSuffix=', environment().suffixes.storage, ';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').keys[0].value)]"
+                        },
+                        {
+                            "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
+                            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';EndpointSuffix=', environment().suffixes.storage, ';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').keys[0].value)]"
+                        },
+                        {
+                            "name": "WEBSITE_CONTENTSHARE",
+                            "value": "[toLower(variables('functionAppName'))]"
+                        },
+                        {
+                            "name": "consoleIP",
+                            "value": "[parameters('QRadarManagementIP')]"
+                        },
+                        {
+                            "name": "token",
+                            "value": "[parameters('QRadarToken')]"
+                        },
+                        {
+                            "name": "tenant",
+                            "value": "[parameters('TenantID')]"
+                        },
+                        {
+                            "name": "sp_id",
+                            "value": "[parameters('ServicePrincipalID')]"
+                        },	
+                        {
+                            "name": "sp_secret",
+                            "value": "[parameters('ServicePrincipalSecret')]"
+                        },							
+                        {
+                            "name": "customerID",
+                            "value": "[parameters('WorkspaceID')]"
+                        },
+                        {
+                            "name": "sharedKey",
+                            "value": "[parameters('WorkspaceKey')]"
+                        }
+                    ],
+		    "linuxFxVersion": "PYTHON|3.9",
+		    "reserved": true
+                },
+                "serverFarmId": "[concat('/subscriptions/','/resourcegroups/', '/providers/Microsoft.Web/serverfarms/', variables('hostingPlanName'))]"
+            },
+            "resources": [
+                {
+                    "apiVersion": "2020-06-01",
+                    "name": "web",
+                    "type": "sourcecontrols",
+                    "dependsOn": [
+                        "[resourceId('Microsoft.Web/Sites', variables('functionAppName'))]"
+                    ],
+                    "properties": {
+                        "RepoUrl": "[variables('repoUrl')]",
+                        "branch": "[variables('branch')]",
+                        "IsManualIntegration": true
+                    }
+                }
+            ]
+        },
       {
          "type":"Microsoft.Storage/storageAccounts",
          "apiVersion":"2019-06-01",

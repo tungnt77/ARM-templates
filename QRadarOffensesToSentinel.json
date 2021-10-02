@@ -98,7 +98,7 @@
             "properties": {
 		"serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",  
 		"linuxFxVersion": "PYTHON|3.8",
-		"reserved": true		    
+		"reserved": true,		    
                 "siteConfig": {
                     "appSettings": [
                         {

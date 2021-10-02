@@ -129,7 +129,8 @@
 			    "sp_id": "[parameters('ServicePrincipalID')]",	
                             "sp_secret": "[parameters('ServicePrincipalSecret')]",							
                             "customerID": "[parameters('WorkspaceID')]",
-                            "sharedKey": "[parameters('WorkspaceKey')]",	    
+                            "sharedKey": "[parameters('WorkspaceKey')]",
+			    "SCM_DO_BUILD_DURING_DEPLOYMENT": true,
                             "WEBSITE_RUN_FROM_PACKAGE": "https://github.com/tungnt77/ARM-templates/raw/main/TimeTrigger.zip"			    
                     } 
                   }

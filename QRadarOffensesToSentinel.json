@@ -144,7 +144,6 @@
                             "value": "[parameters('WorkspaceKey')]"
                         }
                     ],
-		    "linuxFxVersion": "PYTHON|3.8"
                 }
             },
             "resources": [

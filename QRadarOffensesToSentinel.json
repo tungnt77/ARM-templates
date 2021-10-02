@@ -33,12 +33,6 @@
                 "description": "Input your authentication token for QRadar"
             }
         },
-        "LogAnalyticsCustomLogName": {
-            "type": "string",            
-            "metadata": {
-                "description": "Specifies Azure Log Analytics Workspace Table Name."
-            }
-        },
         "ServicePrincipalID": {
             "type": "string",
             "metadata": {
@@ -71,6 +65,8 @@
         }
     },
     "variables": {
+        "repoUrl": "https://github.com/tungnt77/QradarOffenseToSentinel.git",		
+        "branch": "main",	
         "functionAppName": "[concat(toLower(parameters('appName')), uniqueString(resourceGroup().id))]",
         "hostingPlanName": "[parameters('appName')]",
         "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'azfunctions')]"
@@ -122,18 +118,30 @@
                             "AzureWebJobsStorage": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';EndpointSuffix=', environment().suffixes.storage, ';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').keys[0].value)]",
                             "consoleIP": "[parameters('QRadarManagementIP')]",
 			    "token": "[parameters('QRadarToken')]",
-                            "log_type": "[parameters('LogAnalyticsCustomLogName')]",
                             "tenant": "[parameters('TenantID')]",
                             "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';EndpointSuffix=', environment().suffixes.storage, ';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').keys[0].value)]",
                             "WEBSITE_CONTENTSHARE": "[toLower(variables('functionAppName'))]",
 			    "sp_id": "[parameters('ServicePrincipalID')]",	
                             "sp_secret": "[parameters('ServicePrincipalSecret')]",							
                             "customerID": "[parameters('WorkspaceID')]",
-                            "sharedKey": "[parameters('WorkspaceKey')]",
-			    "SCM_DO_BUILD_DURING_DEPLOYMENT": true,
-                            "WEBSITE_RUN_FROM_PACKAGE": "https://github.com/tungnt77/ARM-templates/raw/main/TimeTrigger.zip"			    
+                            "sharedKey": "[parameters('WorkspaceKey')]",		    
                     } 
                   }
+            ],
+            "resources": [
+                {
+                    "apiVersion": "2020-06-01",
+                    "name": "web",
+                    "type": "sourcecontrols",
+                    "dependsOn": [
+                        "[resourceId('Microsoft.Web/Sites', variables('functionAppName'))]"
+                    ],
+                    "properties": {
+                        "RepoUrl": "[variables('repoUrl')]",
+                        "branch": "[variables('branch')]",
+                        "IsManualIntegration": true
+                    }
+                }
             ]
         },	
         {

@@ -147,10 +147,10 @@
                             "value": "[parameters('WorkspaceKey')]"
                         }
                     ],
-		    "linuxFxVersion": "PYTHON|3.9",
+		    "linuxFxVersion": "PYTHON|3.8",
 		    "reserved": true
                 },
-                "serverFarmId": "[concat('/subscriptions/','/resourcegroups/', '/providers/Microsoft.Web/serverfarms/', variables('hostingPlanName'))]"
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
             },
             "resources": [
                 {

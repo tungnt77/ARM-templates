@@ -96,7 +96,9 @@
                 "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]"
             ],
             "properties": {
-		"serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",    
+		"serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",  
+		"linuxFxVersion": "PYTHON|3.8",
+		"reserved": true		    
                 "siteConfig": {
                     "appSettings": [
                         {

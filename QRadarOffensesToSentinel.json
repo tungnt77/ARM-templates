@@ -98,8 +98,6 @@
             "serverFarmId":"[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
             "httpsOnly":true,
             "clientAffinityEnabled":true,
-            "alwaysOn":true,
-            "linuxFxVersion":"PYTHON|3.8",
             "reserved": true
          },
          "resources":[
@@ -112,6 +110,8 @@
                ],
                "properties":{
                   "FUNCTIONS_EXTENSION_VERSION":"~3",
+                  "alwaysOn":true,
+                  "linuxFxVersion":"PYTHON|3.8",
                   "FUNCTIONS_WORKER_RUNTIME":"python",
                   "AzureWebJobsStorage":"[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';EndpointSuffix=', environment().suffixes.storage, ';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').keys[0].value)]",
                   "consoleIP":"[parameters('QRadarManagementIP')]",

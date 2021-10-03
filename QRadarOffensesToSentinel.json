@@ -99,6 +99,12 @@
 		"serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
         "pythonVersion": "3.8",		
                 "siteConfig": {
+                    "alwaysOn": true,
+                    "cors": {
+                        "allowedOrigins": [
+                            "*"
+                        ]
+                    },			
                     "appSettings": [
                         {
                             "name": "FUNCTIONS_EXTENSION_VERSION",

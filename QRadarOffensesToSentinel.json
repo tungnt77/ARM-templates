@@ -97,9 +97,9 @@
             ],
             "properties": {
 		"serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]", 
-                "alwaysOn": true,
-		"linuxFxVersion": "PYTHON|3.9",		    
-                "siteConfig": {		
+                "alwaysOn": true,	    
+                "siteConfig": {
+		    "linuxFxVersion": "PYTHON|3.9",
                     "appSettings": [
                         {
                             "name": "FUNCTIONS_EXTENSION_VERSION",
@@ -153,6 +153,7 @@
                     "apiVersion": "2020-06-01",
                     "name": "web",
                     "type": "sourcecontrols",
+		    "location": "[resourceGroup().location]",
                     "dependsOn": [
                         "[resourceId('Microsoft.Web/Sites', variables('functionAppName'))]"
                     ],

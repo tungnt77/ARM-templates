@@ -100,7 +100,7 @@
             "clientAffinityEnabled":true,
             "alwaysOn":true,
             "linuxFxVersion":"PYTHON|3.8",
-            "reserved":true
+            "reserved": true
          },
          "resources":[
             {
@@ -123,6 +123,7 @@
                   "sp_secret":"[parameters('ServicePrincipalSecret')]",
                   "customerID":"[parameters('WorkspaceID')]",
                   "sharedKey":"[parameters('WorkspaceKey')]",
+                  "SCM_DO_BUILD_DURING_DEPLOYMENT":true,
                   "WEBSITE_RUN_FROM_PACKAGE":"https://github.com/tungnt77/ARM-templates/raw/main/TimeTrigger.zip"
                }
             }

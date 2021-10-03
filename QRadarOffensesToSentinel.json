@@ -65,7 +65,7 @@
       }
    },
    "variables":{
-      "repoUrl":"https://github.com/tungnt77/test.git",
+      "repoUrl":"https://github.com/tungnt77/QradarOffenseToSentinel.git",
       "functionAppName":"[concat(toLower(parameters('appName')), uniqueString(resourceGroup().id))]",
       "hostingPlanName":"[parameters('appName')]",
       "storageAccountName":"[concat(uniquestring(resourceGroup().id), 'azfunctions')]"
@@ -81,8 +81,6 @@
             "name":"S1"
          },
          "properties":{
-            "workerSize": 1,
-            "numberOfWorkers": 1,
             "reserved": true
          }
       },

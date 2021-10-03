@@ -65,7 +65,7 @@
       }
    },
    "variables":{
-      "repoUrl":"https://github.com/tungnt77/QradarOffenseToSentinel.git",
+      "repoUrl":"https://github.com/tungnt77/test.git",
       "functionAppName":"[concat(toLower(parameters('appName')), uniqueString(resourceGroup().id))]",
       "hostingPlanName":"[parameters('appName')]",
       "storageAccountName":"[concat(uniquestring(resourceGroup().id), 'azfunctions')]"
@@ -99,7 +99,7 @@
          "properties":{
             "serverFarmId":"[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
             "siteConfig":{
-               "linuxFxVersion":"PYTHON|3.9",
+               "linuxFxVersion":"PYTHON|3.8",
                "alwaysOn": true,
                "cors": {
                      "allowedOrigins": [
@@ -111,6 +111,10 @@
                      "name":"FUNCTIONS_EXTENSION_VERSION",
                      "value":"~3"
                   },
+                  {
+                     "name": "FUNCTIONS_WORKER_RUNTIME",
+                     "value": "python"
+                  },                 
                   {
                      "name":"AzureWebJobsStorage",
                      "value":"[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';EndpointSuffix=', environment().suffixes.storage, ';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').keys[0].value)]"

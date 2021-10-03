@@ -65,8 +65,8 @@
         }
     },
     "variables": {
-        "repoUrl": "https://github.com/tungnt77/test.git",		
-        "branch": "main",
+        "repoUrl": "https://github.com/tungnt77/QradarOffenseToSentinel.git",		
+        "branch": "master",
         "functionAppName": "[concat(toLower(parameters('appName')), uniqueString(resourceGroup().id))]",
         "hostingPlanName": "[parameters('appName')]",
         "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'azfunctions')]"

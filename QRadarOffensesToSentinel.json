@@ -65,7 +65,7 @@
         }
     },
     "variables": {
-        "repoUrl": "https://github.com/tungnt77/QradarOffenseToSentinel.git",		
+        "repoUrl": "https://github.com/tungnt77/test.git",		
         "branch": "main",
         "functionAppName": "[concat(toLower(parameters('appName')), uniqueString(resourceGroup().id))]",
         "hostingPlanName": "[parameters('appName')]",

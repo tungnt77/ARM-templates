@@ -33,12 +33,6 @@
                 "description": "Input your authentication token for QRadar"
             }
         },
-        "LogAnalyticsCustomLogName": {
-            "type": "string",            
-            "metadata": {
-                "description": "Specifies Azure Log Analytics Workspace Table Name."
-            }
-        },
         "ServicePrincipalID": {
             "type": "string",
             "metadata": {

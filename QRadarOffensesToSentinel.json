@@ -99,11 +99,6 @@
             "siteConfig":{
                "linuxFxVersion":"PYTHON|3.8",
                "alwaysOn": true,
-               "cors": {
-                     "allowedOrigins": [
-                          "*"
-                     ]
-               },
                "appSettings":[
                   {
                      "name":"FUNCTIONS_EXTENSION_VERSION",

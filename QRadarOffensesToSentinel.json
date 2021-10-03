@@ -78,10 +78,11 @@
          "location":"[resourceGroup().location]",
          "kind":"Linux",
          "sku":{
-            "name":"B1"
+            "name":"S1"
          },
          "properties":{
-            "reserved":true
+            "workerSize": 1,
+            "numberOfWorkers": 1
          }
       },
       {
@@ -98,6 +99,12 @@
             "serverFarmId":"[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
             "siteConfig":{
                "linuxFxVersion":"PYTHON|3.9",
+               "alwaysOn": true,
+               "cors": {
+                     "allowedOrigins": [
+                          "*"
+                     ]
+               },
                "appSettings":[
                   {
                      "name":"FUNCTIONS_EXTENSION_VERSION",

@@ -82,7 +82,8 @@
          },
          "properties":{
             "workerSize": 1,
-            "numberOfWorkers": 1
+            "numberOfWorkers": 1,
+            "reserved": true
          }
       },
       {
